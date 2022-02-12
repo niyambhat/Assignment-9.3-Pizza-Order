@@ -32,9 +32,15 @@ app.post('/order',(req,res)=>{
     let pizzaType = req.body.pizzaType;
     let numBoxes = req.body.numBoxes;
     let pizzaSize = req.body.pizzaSize;
-
+    let pcode = req.body.pcode;
     let pizzaOptions = req.body.pizzaOptions;
+    
+    if(pizzaOptions=== undefined){
+        pizzaOptions = [ ]
+    }
+  
     console.log(fname, surname, address, city, state,postcode, email, mobile,pizzaType, numBoxes,pizzaSize, pizzaOptions )
+    console.log(pizzaOptions)
     db.query(`
     UPDATE Persons set
     FirstName = '${fname}',
@@ -48,7 +54,10 @@ app.post('/order',(req,res)=>{
     PizaType = '${pizzaType}',
     NumBoxes= '${numBoxes}',
     PizzaSize = '${pizzaSize}',
-    PizzaOptions = '${pizzaOptions}'
+    PizzaOptions = '${JSON.stringify(pizzaOptions)}',
+    Price = (Select Price from Pizza where PizzaType = '${pizzaType}' ),
+    Promo = '${pcode}',
+    discount = (Select Discount from Promo where promoCode = '${pcode}' )
     `)
     res.render('feedback');
 })
@@ -82,3 +91,15 @@ app.listen(port, () => {
     // PRIMARY KEY (id)
 // );
 // `)
+
+
+// db.query(
+//     `
+//     Insert into Pizza(PizzaType, Price) values ('Cheese Pizza', 12.55);
+//     Insert into Pizza(PizzaType, Price) values ('Veggie Pizza', 12.75);
+//     Insert into Pizza(PizzaType, Price) values ('Marinara Pizza', 15.55);
+//     Insert into Pizza(PizzaType, Price) values ('Tropical Pizza', 11.75);
+//     Insert into Pizza(PizzaType, Price) values ('Super Supreme', 16.25);
+//     Insert into Pizza(PizzaType, Price) values ('Veggie Supreme', 13.75);
+//     `
+//   )

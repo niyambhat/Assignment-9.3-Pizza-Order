@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Feedback</title>
+
+    <meta charset="utf-8">
+    <meta name="author" content="SIT774">
+    <meta name="description" content="Express Sqlite3 Demo">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Latest compiled and minified CSS -->
+    <!-- CSS only -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
         <h1>Order Confirmation</h1>
         <p>The order has been made on <span class="dateTime"></span></p>
     </div>
-    <h3>Order Details</h3>
-    <p class="orderDetail"><span class="qan"></span> x <span class="pizzaname"></span> [<span class="options"></span>]</p>
+
+    <div class="container">
+<h3>Order Details</h3>
+    <p class="orderDetail"><span class="qan"></span> x <span class="pizzaname"></span> <span class="options"></span></p>
     <h3>Customer Details</h3>
     <div class="customerDetails"></div>
 
@@ -20,7 +32,21 @@
     <h4 class="estimateDelivery"></h4>
     <p>Or the Pizza is free</p>
 
+
+     <h1>Pizza Cost</h1>
+        <p>The total cost of pizza is:</p>
+        
+ 
+<table class="table">
+  <tbody class="bill">
+     
+   </tbody>
+   </table>
+
+
     <a href="/">Back to Orders</a>
+    </div>
+    
     <script src="./action.js"></script>
 </body>
 </html>
